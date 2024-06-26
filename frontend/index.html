@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+  <title>Trabalho Final</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="title">TudoCinema</h1>
+    <div class="menu-opcoes">
+      <div id="menu">
+        <img id="icone-menu" src="assets/icons8-menu.svg" alt="icone de menu">
+        <ul>
+          <li>
+            <a href="index.html">Página Inicial</a>
+          </li>
+          <li>
+            <a href="#" id="all-films-link">Todos os Filmes</a>
+          </li>
+          <li>
+            <a href="cadastro_filme.html">Cadastrar Filme</a>
+          </li>
+          <li class="categorias">
+            <div>
+              <a href="#">Categorias</a>
+              <img src="/assets/keyboard-arrow-down_119013.svg" alt="">
+            </div>
+            <div id="opcoes-categoria">
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="search-box">
+        <input class="search-text" type="text" placeholder="Pesquisar Filme...">
+        <a class="search-btn">
+          <img class="loupe-blue" src="/assets/loupe-blue.svg" alt="ícone lupa">
+          <img class="loupe-white" src="/assets/loupe-white.svg" alt="ícone lupa">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="conteudo-home">
+      <h4>Últimos Lançamentos</h4>
+      <div class="carousel"></div>
+  </main>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

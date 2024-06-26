@@ -1,0 +1,51 @@
+/* Chosen */
+.chosen-container-multi .chosen-choices {
+    border-radius: 0.29rem; /* Arredondar bordas */
+    border: 1px solid #ced4da; /* Estilo de borda padrão do Bootstrap */
+    min-height: 38px; /* Aumentar altura mínima */
+}
+
+#categories_chosen {
+    width: 100% !important;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+    border-radius: 0.29rem; /* Arredondar bordas dos itens */
+}
+
+.chosen-container .chosen-single {
+    border-radius: 0.29rem; /* Arredondar bordas */
+    border: 1px solid #ced4da; /* Estilo de borda padrão do Bootstrap */
+    height: 38px; /* Aumentar altura */
+    display: flex;
+    align-items: center; /* Centralizar verticalmente o conteúdo */
+}
+
+.chosen-container .chosen-drop {
+    border-radius: 0.29rem; /* Arredondar bordas do dropdown */
+    border: 1px solid #ced4da; /* Estilo de borda padrão do Bootstrap */
+}
+
+.chosen-container-multi .chosen-choices li.search-field {
+    width: 500px;
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type=text] {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 500px !important;
+    height: 35px;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.btn {
+    background-color: rgb(132, 13, 201) !important;
+    border-color: rgb(132, 13, 201) !important;
+}
+
+@media screen and (max-width:1160px) {
+ #label-pais, #label-min, #label-classif {
+    /* font-size: 15px; */
+    height: 40px !important;
+ }
+}

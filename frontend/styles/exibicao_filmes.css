@@ -1,0 +1,83 @@
+#opcoes {
+    display: flex;
+}
+
+.icones {
+    width: 15%;
+    margin: 50px;
+    img {
+        filter:contrast(0);
+        cursor: pointer;
+        padding-right: 10px;
+        width: 40px;
+    }
+}
+
+main h4 {
+    margin: 50px 120px 15px 120px;
+    font-weight: 500;
+    padding-left: 10px;
+    border-left: solid 5px rgb(132, 13, 201);
+}
+
+.filme{
+    text-align: start !important;
+    h5 {
+        margin-top: 8px;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: 12px;
+        color: rgb(188, 180, 188);
+    }
+
+    a{
+        text-decoration: none;
+        color: #ffffff;
+    }
+}
+
+.p-3 {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.filme:hover{
+
+    img {
+        width: 150px;
+        height: auto;
+    }
+}
+
+.filme img {
+    width: 140px;
+    height: 180px;
+    object-fit: cover;
+}
+
+#titulo-filmes {
+    font-size: 30px;
+    margin: 50px;
+    font-weight: 500;
+    padding-left: 10px;
+    border-left: solid 3px rgb(132, 13, 201);
+}
+
+@media screen and (max-width:700px) {
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+
+        h1 {
+            font-size: 25px !important;
+            margin-bottom: 10px !important;
+        }
+    }
+}

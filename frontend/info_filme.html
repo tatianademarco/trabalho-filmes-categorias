@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Informações do Filme</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/info_filme.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">TudoCinema</h1>
+        <div class="menu-opcoes">
+          <div id="menu">
+            <img id="icone-menu" src="assets/icons8-menu.svg" alt="icone de menu">
+            <ul>
+              <li>
+                  <a href="index.html">Página Inicial</a>
+              </li>
+              <li>
+                  <a href="#" id="all-films-link">Todos os Filmes</a>
+              </li>
+              <li>
+                  <a href="cadastro_filme.html">Cadastrar Filme</a>
+              </li>
+              <li class="categorias">
+                <div>
+                    <a href="#">Categorias</a>
+                    <img src="/assets/keyboard-arrow-down_119013.svg" alt="">
+                </div>
+                <div id="opcoes-categoria">
+                </div>
+        </li>
+          </ul>
+          </div>
+
+            <div class="search-box">
+                <input class="search-text" type="text" placeholder="Pesquisar Filme...">
+                <a class="search-btn">
+                    <img class="loupe-blue" src="/assets/loupe-blue.svg" alt="ícone lupa">
+                    <img class="loupe-white" src="/assets/loupe-white.svg" alt="ícone lupa">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="container-filme">
+        </div>
+        
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript" src="/js/wz_tooltip.js"></script>
+    <script src="js/info_filme.js"></script>
+</body>
+</html>

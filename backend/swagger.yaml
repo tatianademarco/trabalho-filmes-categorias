@@ -1,0 +1,462 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: API de Filmes e Categorias
+  description: API REST para gerenciamento de filmes e categorias.
+paths:
+
+  /filmes:
+    get:
+      tags:
+        - filmes
+      summary: Obter todos os filmes
+      description: Retorna todos os filmes existentes
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FilmeResponse'
+        '500':
+          description: Erro interno do servidor.
+          
+    post:
+      tags:
+        - filmes
+      summary: Cadastrar um novo filme
+      description: Cria um novo filme
+      requestBody:
+        description: Criar um novo filme
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FilmeRequest'
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilmeResponse'
+        '400':
+          description: Entrada inválida
+        '500':
+          description: Erro interno do servidor.
+        '422':
+          description: Exceção de validação
+   
+  /filmes/{id}:
+    get:
+      tags:
+        - filmes
+      summary: Obter filme pelo Id
+      description: Retorna um filme existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID do filme
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilmeResponse'
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Filme não encontrado
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+    put:
+      tags:
+        - filmes
+      summary: Atualizar um filme existente
+      description: Atualiza um filme existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID do filme que será atualizado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Atualizar um filme existente
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FilmeRequest'
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilmeResponse'
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Filme não encontrado
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+    delete:
+      tags:
+        - filmes
+      summary: Excluir um filme existente
+      description: Exclui um filme existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID do filme que será deletado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sucesso
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Filme não encontrado
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+  /filmes/uploads/{imagem}:
+    get:
+      tags:
+        - filmes
+      summary: Carregar imagem
+      description: Retorna imagem do filme
+      parameters:
+        - name: imagem
+          in: path
+          description: Nome da imagem
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Imagem não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+  
+  /filmes/categoria/{categoriaNome}:
+    get:
+      tags:
+        - filmes
+      summary: Carregar filmes pelo nome da categoria
+      description: Retorna filmes da categoria especificada no path
+      parameters:
+        - name: categoriaNome
+          in: path
+          description: Nome da categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FilmeResponse'
+        '404':
+          description: Não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.    
+          
+  /filmes/search:
+    get:
+      tags:
+        - filmes
+      summary: Obter filmes de acordo com o parâmetro
+      description: Retorna os filmes de acordo com a pesquisa passada por parâmetro
+      parameters:
+        - name: query
+          in: query
+          description: Nome do filme para pesquisa
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FilmeResponse'
+        '400':
+          description: Entrada inválida
+        '500':
+          description: Erro interno do servidor.
+        '422':
+          description: Exceção de validação
+          
+  /categorias:
+    get:
+      tags:
+        - categorias
+      summary: Obter todas as categorias
+      description: Retorna todas as categorias existentes
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoriaResponse'
+        '500':
+          description: Erro interno do servidor.
+          
+    post:
+      tags:
+        - categorias
+      summary: Cadastrar uma nova categoria
+      description: Cria uma nova categoria
+      requestBody:
+        description: Criar uma nova categoria
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaRequest'
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaResponse'
+        '400':
+          description: Entrada inválida
+        '500':
+          description: Erro interno do servidor.
+        '422':
+          description: Exceção de validação
+          
+  /categorias/{id}:
+    get:
+      tags:
+        - categorias
+      summary: Obter categoria pelo Id
+      description: Retorna uma categoria existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID da categoria
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaResponse'
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Categoria não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+    put:
+      tags:
+        - categorias
+      summary: Atualizar uma categoria existente
+      description: Atualiza uma categoria existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID da categoria que será atualizada
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Atualizar uma categoria existente
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaRequest'
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaResponse'
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Categoria não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+    delete:
+      tags:
+        - categorias
+      summary: Excluir uma categoria existente
+      description: Exclui uma categoria existente pelo id
+      parameters:
+        - name: id
+          in: path
+          description: ID da categoria que será deletada
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sucesso
+        '400':
+          description: ID fornecido inválido
+        '404':
+          description: Categoria não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+  /categorias/nome/{nome}:
+    get:
+      tags:
+        - categorias
+      summary: Obter categoria pelo nome
+      description: Retorna uma categoria existente pelo nome
+      parameters:
+        - name: nome
+          in: path
+          description: Nome da categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaResponse'
+        '400':
+          description: Parâmetro fornecido inválido
+        '404':
+          description: Categoria não encontrada
+        '422':
+          description: Exceção de validação
+        '500':
+          description: Erro interno do servidor.
+          
+components:
+  schemas:
+    FilmeRequest:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Clube da Luta
+        descricao:
+          type: string
+          example: Um homem deprimido que sofre de insônia conhece um estranho vendedor de sabonetes chamado Tyler Durden. Eles formam um clube clandestino com regras rígidas onde lutam com outros homens cansados de suas vidas mundanas. Mas sua parceria perfeita é comprometida quando Marla chama a atenção de Tyler.
+        data_lancamento:
+          type: string
+          format: date-time
+          example: 1999-10-29
+        imagem:
+          type: string
+          format: binary
+          example: poster.jpg
+        trailerUrl:
+          type: string
+          format: url
+          example: https://youtu.be/eBKvlCf0B4g?si=6t0rkXn1NOdJlDLF
+        classificacao_indicativa:
+          type: string
+          example: 18
+        duracao_minutos:
+          type: integer
+          example: 130
+        pais_origem:
+          type: string
+          example: USA
+        categorias:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoriaResponse' 
+    FilmeResponse:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 1
+        - $ref: '#/components/schemas/FilmeRequest'
+    CategoriaRequest:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Drama
+    CategoriaResponse:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 1
+        - $ref: '#/components/schemas/CategoriaRequest'
+        - type: object
+          properties:
+            filmes:
+              type: array
+              items:
+                $ref: '#/components/schemas/FilmeResponse'

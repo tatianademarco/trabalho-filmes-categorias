@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Filme</title>
+    
+    <!-- Chosen -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+    <link rel="stylesheet" href="styles/cadastro_filme.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.5/js/fileinput.min.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css">
+    
+</head>
+<body>
+    <header>
+        <h1 class="title">TudoCinema</h1>
+        <div class="menu-opcoes">
+          <div id="menu">
+            <img id="icone-menu" src="assets/icons8-menu.svg" alt="icone de menu">
+            <ul>
+              <li>
+                  <a href="index.html">Página Inicial</a>
+              </li>
+              <li>
+                  <a href="#" id="all-films-link">Todos os Filmes</a>
+              </li>
+              <li>
+                  <a href="cadastro_filme.html">Cadastrar Filme</a>
+              </li>
+              <li class="categorias">
+                <div>
+                    <a href="#">Categorias</a>
+                    <img src="/assets/keyboard-arrow-down_119013.svg" alt="">
+                </div>
+                <div id="opcoes-categoria">
+                </div>
+        </li>
+          </ul>
+          </div>
+
+            <div class="search-box">
+                <input class="search-text" type="text" placeholder="Pesquisar Filme...">
+                <a class="search-btn">
+                    <img class="loupe-blue" src="/assets/loupe-blue.svg" alt="ícone lupa">
+                    <img class="loupe-white" src="/assets/loupe-white.svg" alt="ícone lupa">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="row g-3 mx-auto w-75 mt-3">
+        <h1 id="formTitle" style="font-size: 30px; margin-top: 0;">Cadastrar Filme</h1>
+        <form id="filmeForm" class="row g-3" style="margin: 0;">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label">Nome do filme:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="data_lancamento" class="form-label">Data de lançamento:</label>
+                    <input type="date" class="form-control" id="data_lancamento" name="data_lancamento" required>
+                </div>
+                <div class="col-12">
+                    <label for="mensagem" class="form-label">Descrição do filme:</label>
+                    <textarea class="form-control" id="descricao" name="descricao" required></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="pais" class="form-label" id="label-pais">País de origem:</label>
+                    <input type="text" class="form-control" id="pais" name="pais" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="duracao_min" class="form-label" id="label-min">Duração em minutos:</label>
+                    <input type="number" class="form-control" id="duracao_min" name="duracao_min" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="classificacao" class="form-label" id="label-classif">Classificação indicativa:</label>
+                    <select id="classificacao" class="form-select" name="classificacao" required>
+                        <option value="L">L</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+                    <div class="col-12">
+                        <label for="url_trailer" class="form-label">URL do Trailer:</label>
+                        <input type="url" class="form-control" id="url_trailer" name="url_trailer" required>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="categories">Categorias:</label>
+                        <select id="categories" name="categories[]" class="form-control" multiple required></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="outra-categoria"></label>
+                        <button type="button" id="outra-categoria" class="form-control" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(132, 13, 201); border-color: rgb(132, 13, 201); color: white;">Outra categoria</button>
+                    </div>
+                    <div class="col-12">
+                        <label for="input-6a">Imagem:</label>
+                        <div class="file-loading"> 
+                            <input id="input-b6a" name="input-b6a[]" type="file">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary" style="background-color: rgb(132, 13, 201); border-color: rgb(132, 13, 201);">Salvar</button>
+                    </div>           
+        </form>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Nova Categoria</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label" style="color: black;">Infome o nome da categoria que deseja adicionar:</label>
+                                <input type="text" class="form-control" id="category-name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="salvar-categoria" style="background-color: rgb(132, 13, 201); border-color: rgb(132, 13, 201);">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/cadastro_filme.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

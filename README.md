@@ -33,8 +33,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/tatianademarco/Site-Filmes-Categorias.git
-cd Documents/TrabalhosCiência/5semestre/ProgWebTrabalhoFinalDaDisciplina
+git clone https://github.com/tatianademarco/trabalho-filmes-categorias.git
 ```
 
 Navegue até o diretório do backend:

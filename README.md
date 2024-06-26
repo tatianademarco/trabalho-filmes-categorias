@@ -6,7 +6,7 @@ Este é um site para gerenciamento de filmes e categorias, desenvolvido utilizan
 
 Este projeto tem como objetivo fornecer uma interface intuitiva para o gerenciamento de filmes e suas respectivas categorias, com suporte a operações de upload de imagens, pesquisa e classificação.
 
-![DiagramaTrabalhoWeb](https://github.com/tatianademarco/Site-Filmes-Categorias/assets/113955857/9a81140d-e475-4826-9709-21fd69aadacb)
+![DiagramaTrabalhoWeb](https://github.com/tatianademarco/trabalho-filmes-categorias/assets/113955857/7d51de83-a613-49aa-996a-431938ae8b3a)
 
 ## Funcionalidades
 

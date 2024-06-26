@@ -1,6 +1,6 @@
 # Sistema Web de Gerenciamento de Filmes e Categorias
 
-Este é um site para gerenciamento de filmes e categorias, desenvolvido utilizando HTML, CSS e Java Script e bibliotecas de estlização para uma interface dinâmica e responsiva e utilizando o framework Spring Boot para o backend. A API é documentada com Swagger e permite operações CRUD completas em filmes e categorias.
+Este é um site para gerenciamento de filmes e categorias, desenvolvido utilizando HTML, CSS e Java Script e bibliotecas de estlização para uma interface dinâmica e responsiva e utilizando o framework Spring Boot para o backend, o backend também contempla testes unitários para garantir sua confiabilidade. A API é documentada com Swagger e permite operações CRUD completas em filmes e categorias.
 
 ## Visão Geral
 
